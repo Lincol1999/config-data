@@ -1,0 +1,17 @@
+server:
+  #port: ${PORT:${SERVER_PORT:0}}
+  port: 8002
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      #defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://52.151.226.196:8761/eureka}
+  instance:
+    #hostname: localhost
+    preferIpAddress: true
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://root:s3cr3t@cluster0.majt8.mongodb.net/db-customer?retryWrites=true&w=majority
