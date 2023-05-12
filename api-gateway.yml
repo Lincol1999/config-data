@@ -3,8 +3,8 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      #defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-      defaultZone: ${EUREKA_URI:http://52.151.226.196:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      #efaultZone: ${EUREKA_URI:http://52.151.226.196:8761/eureka}
   instance:
     #hostname: localhost
     preferIpAddress: true
@@ -17,28 +17,7 @@ spring:
       routes:
         - id: customer-ms
           #uri: http://20.85.204.185:8002
-          uri: lb://customer-ms
+          uri: http://localhost:8002
+        #uri: lb://customer-ms
           predicates:
             - Path=/api/v1/customers/**
-        - id: product-ms
-          #uri: http://20.85.249.222:8003
-          uri: lb://product-ms
-          predicates:
-            - Path=/api/v1/products/**
-        - id: transaction-ms
-          #uri: http://20.84.13.193:8004
-          uri: lb://transaction-ms
-          predicates:
-            - Path=/api/v1/transactions/**
-        - id: card-ms
-          #uri: http://40.88.234.98:8005
-          #uri: http://localhost:8005
-          uri: lb://card-ms
-          predicates:
-            - Path=/api/v1/cards/**
-        - id: yanki-ms
-          #uri: http://40.88.234.98:8005
-          #uri: http://localhost:8005
-          uri: lb://yanki-ms
-          predicates:
-            - Path=/api/v1/yankis/**
